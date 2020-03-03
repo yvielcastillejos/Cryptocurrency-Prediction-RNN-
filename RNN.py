@@ -10,7 +10,7 @@ def train():
     train_y = np.array(np.load("train_y.npy"))
     validation_x = np.load("validation_x.npy")
     validation_y = np.array(np.load("validation_y.npy"))
-    
+
     neural = tf.keras.models.Sequential()
     neural.add(LSTM(120, input_shape = (train_x.shape[1:]), return_sequences=True, activation=tf.nn.relu))
     neural.add(Dropout(.20))
@@ -24,7 +24,7 @@ def train():
     neural.add(Dropout(.20))
     neural.add(BatchNormalization())
 
-    neural.add(Dense(1, activation=tf.nn.sigmoid))
+    neural.add(Dense(2, activation=tf.nn.softmax))
     neural.add(Dropout(.20))
     neural.add(BatchNormalization())
 
@@ -34,6 +34,7 @@ def train():
                    loss='sparse_categorical_crossentropy',
                    metrics=['accuracy'])
 
-    neural.fit(train_x, train_y, epochs=1, validation_data=(validation_x,validation_y))
+    neural.fit(train_x, train_y, bacth_size=32 epochs=1, validation_data=(validation_x,validation_y))
     return
 
+train()
