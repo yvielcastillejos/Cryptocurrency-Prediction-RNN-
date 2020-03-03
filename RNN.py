@@ -7,11 +7,10 @@ from tensorflow.keras.optimizers import Adam
 
 def train():
     train_x = np.load("train_x.npy")
-    train_y = np.load("train_y.npy")
+    train_y = np.array(np.load("train_y.npy"))
     validation_x = np.load("validation_x.npy")
-    validation_y = np.load("validation_y.npy")
-
-
+    validation_y = np.array.(np.load("validation_y.npy"))
+    
     neural = tf.keras.models.Sequential()
     neural.add(LSTM(120, input_shape = (train_x.shape[1:]), return_sequences=True, activation=tf.nn.relu))
     neural.add(Dropout(.20))
