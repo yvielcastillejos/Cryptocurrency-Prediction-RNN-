@@ -35,5 +35,5 @@ def train():
                    metrics=['accuracy'])
 
     neural.fit(train_x, train_y, epochs=1, validation_data=(validation_x,validation_y))
-return
+    return
 
