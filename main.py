@@ -2,12 +2,12 @@ import pandas as pd
 import csv
 import numpy as np
 import os
-import funct
+from funct import*
 import tensorflow as tf
 from sklearn import preprocessing
 from collections import deque
 import random
-import RNN
+from RNN import*
 
 category_to_predict = "ETH-USD"
 Future_to_predict = 3 #min whether to buy it after 3 minutes
